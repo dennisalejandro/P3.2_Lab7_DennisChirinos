@@ -86,7 +86,20 @@ using namespace std;
 			tCabello=2;
 		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
 			tCabello=1;
+		}else if(this->Cabello==1 && a.getCabello()==2){//negro rubio
+			tCabello=2;
+		} else if(this->Cabello==3 && a.getCabello()==3){//peirrojo pelirojo
+			tCabello=3;
+		} else if(this->Cabello==3 && a.getCabello()==2){//negro pelirojo
+			tCabello=2;
+		}else if(this->Cabello==3 && a.getCabello()==1){//rubio pelirrojo
+			tCabello=1;
+		}else if(this->Cabello==2 && a.getCabello()==2){//negro negro
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
+			tCabello=1;
 		}
+
 		int ran_ojos;
 		ran_ojos=rand()%100;
 			if(ran_ojos>=0 && ran_ojos<=6.25){
@@ -109,12 +122,25 @@ using namespace std;
 			tPiel=2;
 		}else if(this->Piel==3 && a.getPiel()==3){
 			tPiel=3;
+		}else if(this->Piel==2 && a.getPiel()==1){
+			tPiel=3;
+		}else if(this->Piel==3 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==3 && a.getPiel()==2){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==2){
+			tPiel=2;
+		}else if(this->Piel==3 && a.getPiel()==3){
+			tPiel=3;
 		}
+
+
+
 		persona3=new Persona(tNombre, tGenero, tCabello, tOjos, tPiel, tFertil);
 		return persona3;
 	}
-
-
 
 	Persona* Persona::operator * (Persona a) {
 		Persona *persona3;
@@ -152,7 +178,20 @@ using namespace std;
 			tCabello=2;
 		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
 			tCabello=1;
+		}else if(this->Cabello==1 && a.getCabello()==2){//negro rubio
+			tCabello=2;
+		} else if(this->Cabello==3 && a.getCabello()==3){//peirrojo pelirojo
+			tCabello=3;
+		} else if(this->Cabello==3 && a.getCabello()==2){//negro pelirojo
+			tCabello=2;
+		}else if(this->Cabello==3 && a.getCabello()==1){//rubio pelirrojo
+			tCabello=1;
+		}else if(this->Cabello==2 && a.getCabello()==2){//negro negro
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
+			tCabello=1;
 		}
+
 		int ran_ojos;
 		ran_ojos=rand()%100;
 			if(ran_ojos>=0 && ran_ojos<=6.25){
@@ -168,6 +207,18 @@ using namespace std;
 		}else if(this->Piel==1 && a.getPiel()==3){
 			tPiel=1;
 		}else if(this->Piel==2 && a.getPiel()==3){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==2){
+			tPiel=2;
+		}else if(this->Piel==3 && a.getPiel()==3){
+			tPiel=3;
+		}else if(this->Piel==2 && a.getPiel()==1){
+			tPiel=3;
+		}else if(this->Piel==3 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==3 && a.getPiel()==2){
 			tPiel=3;
 		}else if(this->Piel==1 && a.getPiel()==1){
 			tPiel=1;
