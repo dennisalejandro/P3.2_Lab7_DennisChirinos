@@ -56,7 +56,39 @@ int main() {
 				Listar(vList);
 			} break;
 			case 4: {
-
+				opD;
+				cout << "Con Preservativo o sin preservativo \n";
+				cout << "1) Con Preservativo\n";
+				cout << "2) Sin Preservativo\n";
+				cin >> opD;
+				cout << "Usar que personas? \n";
+				Persona P1;
+				Persona P2;
+				int P1op;
+				int P2op;
+				Listar(vList);
+				cin >> P1op;
+				cin >> P2op;
+				P1 = *vList->at(P1op);
+				P2 = *vList->at(P2op);
+				if ((P1.getGenero()==P2.getGenero())&&(P1.getFertil())&&(P2.getFertil())) {
+					switch (opD) {
+						case 1: {
+							int TieneHijos = rand() % 28;
+							int SeRompio = rand() % 100;
+							if ((TieneHijos>=6)&&(SeRompio<=1)) {
+								cout << "Se rompio el condon \n";
+								Persona* Pnew = P1*P2;
+								vList->push_back(Pnew);
+							}
+						} break;
+						case 2: {
+							cout << "Felicidades saco un hijo \n";
+							Persona* Pnew = P1+P2;
+							vList->push_back(Pnew);
+						} break;
+					}
+				}
 			} break;
 		}
 	}
