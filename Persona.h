@@ -24,4 +24,7 @@ class Persona {
 		int getOjos();
 		int getPiel();
 		bool getFertil();
+		Persona operator + (Persona);
+		Persona operator * (Persona);
+		string toString();
 };

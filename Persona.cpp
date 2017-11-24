@@ -46,3 +46,58 @@ using namespace std;
 	bool Persona::getFertil() {
 		return this->Fertil;
 	}
+	Persona Persona::operator + (Persona a) {
+		return a;
+	}
+	Persona Persona::operator * (Persona a) {
+		return a;
+	}
+	string Persona::toString() {
+		string c;
+		c = "";
+		c = c + "Nombre: " + getNombre() + ", ";
+		c = c + "Nombre: " + getGenero() + ", ";
+		switch (getCabello()) {
+			case 1: {
+				c = c + "Pelo: " + "Rubio" + ", ";
+			} break;
+			case 2: {
+				c = c + "Pelo: " + "Negro" + ", ";
+			} break;
+			case 3: {
+				c = c + "Pelo: " + "Castaño" + ", ";	
+			} break;
+			default: {
+				c = c + "Pelo: " + "Invalido" + ", ";
+			} break;
+		}
+		switch (getOjos()) {
+			case 1: {
+				c = c + "Ojos: " + "Cafe" + ", ";
+			} break;
+			case 2: {
+				c = c + "Ojos: " + "Verde" + ", ";
+			} break;
+			case 3: {
+				c = c + "Ojos: " + "Azul" + ", ";	
+			} break;
+			default: {
+				c = c + "Ojos: " + "Invalido" + ", ";
+			} break;
+		}
+		switch (getPiel()) {
+			case 1: {
+				c = c + "Piel: " + "Blanco" + "";
+			} break;
+			case 2: {
+				c = c + "Piel: " + "Nigga" + "";
+			} break;
+			case 3: {
+				c = c + "Piel: " + "Trigueño" + "";	
+			} break;
+			default: {
+				c = c + "Piel: " + "Invalido" + "";
+			} break;
+		}
+		return c;
+	}
