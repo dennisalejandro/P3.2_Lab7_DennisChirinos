@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "Persona.h"
+#include <exception>
 using namespace std;
 void Listar(vector<Persona*>*);
 int main() {
@@ -13,6 +14,7 @@ int main() {
 		cout << "2) Eliminar persona \n";
 		cout << "3) Listar persona \n";
 		cout << "4) Simular... persona  :v \n";
+		cout << "\n";
 		cin >> op;
 		switch (op) {
 			case 1: {
@@ -45,15 +47,20 @@ int main() {
 				vList->push_back(p);
 			} break;
 			case 2: {
-				cout << "Ingrese Cual Persona borrar \n";
-				Listar(vList);
-				int opDel;
-				cin >> opDel;
-				delete vList->at(opDel);
-				vList->erase(vList->begin() + opDel);
+				try {
+					cout << "Ingrese Cual Persona borrar \n";
+					Listar(vList);
+					int opDel;
+					cin >> opDel;
+					delete vList->at(opDel);
+					vList->erase(vList->begin() + opDel);
+				} catch (exception e) {
+					cout << "Error, ingrese un numero correcto \n";
+				}
 			} break;
 			case 3: {
 				Listar(vList);
+				cout << "\n";
 			} break;
 			case 4: {
 				int opD;
@@ -61,7 +68,7 @@ int main() {
 				cout << "1) Con Preservativo\n";
 				cout << "2) Sin Preservativo\n";
 				cin >> opD;
-				cout << "Usar que personas? \n";
+				cout << "Usar que personas? (Persona 1 el macho, Persona 2 la femina)\n";
 				int P1op;
 				int P2op;
 				Listar(vList);
@@ -69,7 +76,7 @@ int main() {
 				cin >> P2op;
 				Persona P1 = *vList->at(P1op);
 				Persona P2 = *vList->at(P2op);
-				if ((P1.getGenero()==P2.getGenero())&&(P1.getFertil())&&(P2.getFertil())) {
+				if ((P1.getGenero()!=P2.getGenero())&&(P1.getFertil())&&(P2.getFertil())) {
 					switch (opD) {
 						case 1: {
 							int TieneHijos = rand() % 28;
@@ -82,6 +89,7 @@ int main() {
 						} break;
 						case 2: {
 							int TieneHijos = rand() % 28;
+							//cout << "TieneHijos: " << TieneHijos << "\n"; 
 							if (TieneHijos>=6) {
 								cout << "Felicidades saco un hijo \n";
 								Persona* Pnew = P1+P2;
