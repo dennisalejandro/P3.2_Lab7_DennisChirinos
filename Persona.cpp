@@ -234,7 +234,7 @@ using namespace std;
 		string c;
 		c = "";
 		c = c + "Nombre: " + getNombre() + ", ";
-		c = c + "Nombre: " + getGenero() + ", ";
+		c = c + "Genero: " + getGenero() + ", ";
 		switch (getCabello()) {
 			case 1: {
 				c = c + "Pelo: " + "Rubio" + ", ";
