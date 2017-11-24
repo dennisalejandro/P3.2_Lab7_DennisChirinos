@@ -3,14 +3,14 @@
 #include <string>
 using namespace std;
 class Persona {
-	private: 
+	private:
 		string Nombre;
 		char Genero;
 		int Cabello;
 		int Ojos;
 		int Piel;
 		bool Fertil;
-	public: 
+	public:
 		Persona(string, char, int, int, int, bool);
 		void  setNombre(string);
 		void  setGenero(char);
@@ -24,7 +24,8 @@ class Persona {
 		int getOjos();
 		int getPiel();
 		bool getFertil();
-		Persona operator + (Persona);
-		Persona operator * (Persona);
+
+		Persona* operator + (Persona);
+		Persona* operator * (Persona);
 		string toString();
 };

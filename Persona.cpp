@@ -1,8 +1,12 @@
 #include "Persona.h"
 #include <iostream>
 #include <string>
+#include <math.h>
+#include <time.h>
+#include <cstdlib>
+
 using namespace std;
-	Persona::Persona(string Nombre, char Genero, int Cabello, int Ojos, int Piel, bool Fertil) { 
+	Persona::Persona(string Nombre, char Genero, int Cabello, int Ojos, int Piel, bool Fertil) {
 		setNombre(Nombre);
 		setGenero(Genero);
 		setCabello(Cabello);
@@ -46,11 +50,134 @@ using namespace std;
 	bool Persona::getFertil() {
 		return this->Fertil;
 	}
-	Persona Persona::operator + (Persona a) {
-		return a;
+	Persona* Persona::operator + (Persona a) {
+		Persona *persona3;
+			string tNombre;
+			char tGenero;
+			int tCabello;
+			int tOjos;
+			int tPiel;
+			bool tFertil=true;
+
+		if(this->Genero==('M')){
+			tNombre=this->Nombre;
+		}else{
+			tNombre=a.getNombre();
+		}
+
+		srand(time(NULL));
+		int ran_genero;
+		ran_genero=rand()%2;
+
+		if(ran_genero==1){
+			tGenero='H';
+		}else{
+			tGenero='M';
+		}
+		if(this->Cabello==2 && a.getCabello()==1){//negro rubio
+			tCabello=2;
+		} else if(this->Cabello==3 && a.getCabello()==3){//peirrojo pelirojo
+			tCabello=3;
+		} else if(this->Cabello==2 && a.getCabello()==3){//negro pelirojo
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==3){//rubio pelirrojo
+			tCabello=1;
+		}else if(this->Cabello==2 && a.getCabello()==2){//negro negro
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
+			tCabello=1;
+		}
+		int ran_ojos;
+		ran_ojos=rand()%100;
+			if(ran_ojos>=0 && ran_ojos<=6.25){
+				tOjos=3;
+			}else if(ran_ojos>6.25 && ran_ojos<=18.75){
+				tOjos=2;
+			}else if(ran_ojos>18.75 && ran_ojos<=100){
+				tOjos=1;
+			}
+
+		if(this->Piel==1 && a.getPiel()==2){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==3){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==3){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==2){
+			tPiel=2;
+		}else if(this->Piel==3 && a.getPiel()==3){
+			tPiel=3;
+		}
+		persona3=new Persona(tNombre, tGenero, tCabello, tOjos, tPiel, tFertil);
+		return persona3;
 	}
-	Persona Persona::operator * (Persona a) {
-		return a;
+
+
+
+	Persona* Persona::operator * (Persona a) {
+		Persona *persona3;
+			string tNombre;
+			char tGenero;
+			int tCabello;
+			int tOjos;
+			int tPiel;
+			bool tFertil=true;
+
+		if(this->Genero==('M')){
+			tNombre=this->Nombre;
+		}else{
+			tNombre=a.getNombre();
+		}
+
+		srand(time(NULL));
+		int ran_genero;
+		ran_genero=rand()%2;
+
+		if(ran_genero==1){
+			tGenero='H';
+		}else{
+			tGenero='M';
+		}
+		if(this->Cabello==2 && a.getCabello()==1){//negro rubio
+			tCabello=2;
+		} else if(this->Cabello==3 && a.getCabello()==3){//peirrojo pelirojo
+			tCabello=3;
+		} else if(this->Cabello==2 && a.getCabello()==3){//negro pelirojo
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==3){//rubio pelirrojo
+			tCabello=1;
+		}else if(this->Cabello==2 && a.getCabello()==2){//negro negro
+			tCabello=2;
+		}else if(this->Cabello==1 && a.getCabello()==1){//rubio rubio
+			tCabello=1;
+		}
+		int ran_ojos;
+		ran_ojos=rand()%100;
+			if(ran_ojos>=0 && ran_ojos<=6.25){
+				tOjos=3;
+			}else if(ran_ojos>6.25 && ran_ojos<=18.75){
+				tOjos=2;
+			}else if(ran_ojos>18.75 && ran_ojos<=100){
+				tOjos=1;
+			}
+
+		if(this->Piel==1 && a.getPiel()==2){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==3){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==3){
+			tPiel=3;
+		}else if(this->Piel==1 && a.getPiel()==1){
+			tPiel=1;
+		}else if(this->Piel==2 && a.getPiel()==2){
+			tPiel=2;
+		}else if(this->Piel==3 && a.getPiel()==3){
+			tPiel=3;
+		}
+		persona3=new Persona(tNombre, tGenero, tCabello, tOjos, tPiel, tFertil);
+		return persona3;
 	}
 	string Persona::toString() {
 		string c;
@@ -65,7 +192,7 @@ using namespace std;
 				c = c + "Pelo: " + "Negro" + ", ";
 			} break;
 			case 3: {
-				c = c + "Pelo: " + "Castaño" + ", ";	
+				c = c + "Pelo: " + "Castaño" + ", ";
 			} break;
 			default: {
 				c = c + "Pelo: " + "Invalido" + ", ";
@@ -79,7 +206,7 @@ using namespace std;
 				c = c + "Ojos: " + "Verde" + ", ";
 			} break;
 			case 3: {
-				c = c + "Ojos: " + "Azul" + ", ";	
+				c = c + "Ojos: " + "Azul" + ", ";
 			} break;
 			default: {
 				c = c + "Ojos: " + "Invalido" + ", ";
@@ -93,7 +220,7 @@ using namespace std;
 				c = c + "Piel: " + "Nigga" + "";
 			} break;
 			case 3: {
-				c = c + "Piel: " + "Trigueño" + "";	
+				c = c + "Piel: " + "Trigueño" + "";
 			} break;
 			default: {
 				c = c + "Piel: " + "Invalido" + "";
